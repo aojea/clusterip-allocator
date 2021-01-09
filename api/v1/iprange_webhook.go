@@ -17,6 +17,9 @@ limitations under the License.
 package v1
 
 import (
+	"fmt"
+	"net"
+
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
@@ -42,17 +45,14 @@ var _ webhook.Validator = &IPRange{}
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
 func (r *IPRange) ValidateCreate() error {
 	iprangelog.Info("validate create", "name", r.Name)
-
-	// TODO(user): fill in your validation logic upon object creation.
-	return nil
+	_, _, err := net.ParseCIDR(r.Spec.Range)
+	return err
 }
 
 // ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
 func (r *IPRange) ValidateUpdate(old runtime.Object) error {
 	iprangelog.Info("validate update", "name", r.Name)
-
-	// TODO(user): fill in your validation logic upon object update.
-	return nil
+	return fmt.Errorf("IPRange can not be changed after creation")
 }
 
 // ValidateDelete implements webhook.Validator so a webhook will be registered for the type
