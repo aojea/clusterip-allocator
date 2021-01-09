@@ -1,0 +1,12 @@
+domain: k8s.io
+layout: go.kubebuilder.io/v2
+projectName: clusterip-allocator
+repo: github.com/aojea/clusterip-allocator
+resources:
+- group: allocator
+  kind: IPRange
+  version: v1
+- group: allocator
+  kind: IPAddress
+  version: v1
+version: 3-alpha

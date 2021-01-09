@@ -1,0 +1,7 @@
+apiVersion: allocator.k8s.io/v1
+kind: IPAddress
+metadata:
+  name: ipaddress-sample
+spec:
+  # Add fields here
+  foo: bar
