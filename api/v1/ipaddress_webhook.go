@@ -35,7 +35,7 @@ func (r *IPAddress) SetupWebhookWithManager(mgr ctrl.Manager) error {
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 
 // TODO(user): change verbs to "verbs=create;update;delete" if you want to enable deletion validation.
-// +kubebuilder:webhook:verbs=create;update,path=/validate-allocator-k8s-io-v1-ipaddress,mutating=false,failurePolicy=fail,groups=allocator.k8s.io,resources=ipaddresses,versions=v1,name=vipaddress.kb.io
+// +kubebuilder:webhook:verbs=create;update;delete,path=/validate-allocator-k8s-io-v1-ipaddress,mutating=false,failurePolicy=fail,groups=allocator.k8s.io,resources=ipaddresses,versions=v1,name=vipaddress.kb.io
 
 var _ webhook.Validator = &IPAddress{}
 
